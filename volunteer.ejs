@@ -17,7 +17,7 @@
 
     <section>
         <div class="container">
-            <span><h1 class="welcome-header">Welcome Administrator</h1></span>
+            <span><h1 class="welcome-header">Welcome <%= volunteer.name %></h1></span>
         </div>
     </section>
 
@@ -26,16 +26,12 @@
         <div class="container metadata">
             <ul class="metadata-ul">
                 <li class="metadata-li">
-                    <h2 class="number"><%= numVols %></h2>
-                    <span class="desc">Volunteers</span>
+                    <h2><%= volunteer.events %></h2>
+                    <span>Events Attended</span>
                 </li>
                 <li class="metadata-li">
-                    <h2><%= numEvents %></h2>
-                    <span>Events</span>
-                </li>
-                <li class="metadata-li">
-                    <h2><%= numSchools %></h2>
-                    <span>Schools Covered</span>     
+                    <h2><%= volunteer.hours %></h2>
+                    <span>Hours Worked</span>     
                 </li>
             </ul>
         </div>
@@ -43,7 +39,7 @@
     </section>
 
     <div class="container">
-        <h3 class="tour-h3">Events List</h3>
+        <h3 class="tour-h3">Registered Events</h3>
         <div class="tour-row">
             <span class="tour-item tour-head">Name</span>
             <span class="tour-item tour-head">City</span>
@@ -59,14 +55,13 @@
                     <span class="tour-item tour-arena"><%= eve.date %></span>
                     <span class="tour-item tour-city"><%= eve.activity %></span>
                     <span class="tour-item tour-arena"><%= eve.numPeople %></span>
-                    <button class="btn btn-primary btn-danger">Remove</button>
                 </div>
             <% }); %>
         </div>
     </div>
 
     <div class="container">
-        <h3 class="tour-h3">Volunteer List</h3>
+        <h3 class="tour-h3">Upcoming Events</h3>
         <div class="tour-row">
             <span class="tour-item tour-head">Name</span>
             <span class="tour-item tour-head">Email</span>
@@ -75,14 +70,14 @@
             <span class="tour-item tour-head">Hours</span>
         </div>
         <div class="tour-row">
-            <% volunteers.forEach(function(vol) { %>
+            <% newEvents.forEach(function(ne) { %>
                 <div class="tour-row">
-                    <span class="tour-item tour-head"><%= vol.name %></span>
-                    <span class="tour-item tour-city"><%= vol.email %></span>
-                    <span class="tour-item tour-arena"><%= vol.phone %></span>
-                    <span class="tour-item tour-arena"><%= vol.events %></span>
-                    <span class="tour-item tour-head"><%= vol.hours %></span>
-                    <button class="btn btn-primary btn-danger">Remove</button>
+                    <span class="tour-item tour-head"><%= ne.name %></span>
+                    <span class="tour-item tour-city"><%= ne.city %></span>
+                    <span class="tour-item tour-arena"><%= ne.date %></span>
+                    <span class="tour-item tour-city"><%= ne.activity %></span>
+                    <span class="tour-item tour-arena"><%= ne.numPeople %></span>
+                    <button class="btn btn-primary btn-danger">Apply</button>
                 </div>
             <% }); %>
         </div>
