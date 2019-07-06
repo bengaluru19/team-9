@@ -53,7 +53,7 @@ html, body {
 
 .main-header {
     background-color: rgba(0, 0, 0, .6);
-    background-image: url("Images/Header Background.jpg");
+    background-color: #2D9CDB;
     background-blend-mode: multiply;
     background-size: cover;
     padding-bottom: 30px;
@@ -222,22 +222,22 @@ html, body {
     padding-right: .5em;
 }
 
-.tour-date {
+.tour-head {
     color: #555;
-    width: 11%;
+    width: 15%;
     font-weight: bold;
 }
 
 .tour-city {
-    width: 24%;
+    width: 15%;
 }
 
 .tour-arena {
-    width: 42%;
+    width: 15%;
 }
 
 .tour-btn {
-    max-width: 19%;
+    max-width: 15%;
 }
 
 .shop-item {
@@ -375,4 +375,20 @@ html, body {
     display: block;
     margin: 40px auto 80px auto;
     font-size: 1.75em;
+}
+
+
+.metadata-ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    list-style: none;
+}
+
+.metadata-li {
+    display: inline;
+    background-color: #56ccf2;
+    padding: 5%;
+    border-radius: 10%;
+    color: #eee;
 }

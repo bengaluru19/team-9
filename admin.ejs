@@ -41,37 +41,23 @@
     </section>
 
     <div class="container">
-        <h3>Volunteer List</h3>
-        <select name="property">
-            <option selected="selected">All Properties</option>
-            <option value="">Option 1</option>
-            <option value="">Option 2</option>
-        </select>
-        <select class="js-select2" name="time">
-            <option selected="selected">Today</option>
-            <option value="">3 Days</option>
-            <option value="">1 Week</option>
-        </select>
-        <button class="au-btn-filter">filters</button>
-        <button class="au-btn au-btn-icon au-btn--green au-btn--small">add a volunteer</button>
-        <select class="js-select2" name="type">
-            <option selected="selected">Remove</option>
-        </select>
-
+        <h3>Events List</h3>
         <div class="tour-row">
             <span class="tour-item tour-head">Name</span>
-            <span class="tour-item tour-head">Email</span>
-            <span class="tour-item tour-head">Phone</span>
-            <span class="tour-item tour-head">Events</span>
-            <span class="tour-item tour-head">Hours</span>
+            <span class="tour-item tour-head">City</span>
+            <span class="tour-item tour-head">Date</span>
+            <span class="tour-item tour-head">Activity</span>
+            <span class="tour-item tour-head">Volunteers</span>
         </div>
         <div class="tour-row">
-            <% volunteers.forEach(function(vol) { %></div>
+            <% events.forEach(function(eve) { %>
                 <div class="tour-row">
-                    <span class="tour-item tour-head"><%= vol.name %></span>
-                    <span class="tour-item tour-city"><%= vol.email %></span>
-                    <span class="tour-item tour-arena"><%= vol.phone %></span>
-                    <input type="checkbox">
+                    <span class="tour-item tour-head"><%= eve.name %></span>
+                    <span class="tour-item tour-city"><%= eve.city %></span>
+                    <span class="tour-item tour-arena"><%= eve.date %></span>
+                    <span class="tour-item tour-city"><%= eve.activity %></span>
+                    <span class="tour-item tour-arena"><%= eve.numPeople %></span>
+                    <button class="btn btn-primary btn-danger">Remove</button>
                 </div>
             <% }); %>
         </div>
@@ -79,22 +65,6 @@
 
     <div class="container">
         <h3>Volunteer List</h3>
-        <select name="property">
-            <option selected="selected">All Properties</option>
-            <option value="">Option 1</option>
-            <option value="">Option 2</option>
-        </select>
-        <select class="js-select2" name="time">
-            <option selected="selected">Today</option>
-            <option value="">3 Days</option>
-            <option value="">1 Week</option>
-        </select>
-        <button class="au-btn-filter">filters</button>
-        <button class="au-btn au-btn-icon au-btn--green au-btn--small">add a volunteer</button>
-        <select class="js-select2" name="type">
-            <option selected="selected">Remove</option>
-        </select>
-
         <div class="tour-row">
             <span class="tour-item tour-head">Name</span>
             <span class="tour-item tour-head">Email</span>
@@ -103,12 +73,14 @@
             <span class="tour-item tour-head">Hours</span>
         </div>
         <div class="tour-row">
-            <% volunteers.forEach(function(vol) { %></div>
+            <% volunteers.forEach(function(vol) { %>
                 <div class="tour-row">
                     <span class="tour-item tour-head"><%= vol.name %></span>
                     <span class="tour-item tour-city"><%= vol.email %></span>
                     <span class="tour-item tour-arena"><%= vol.phone %></span>
-                    <input type="checkbox">
+                    <span class="tour-item tour-arena"><%= vol.events %></span>
+                    <span class="tour-item tour-head"><%= vol.hours %></span>
+                    <button class="btn btn-primary btn-danger">Remove</button>
                 </div>
             <% }); %>
         </div>
