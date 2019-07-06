@@ -416,3 +416,7 @@ cursor: pointer;
     margin: 2em;
     background: solid black;
 }
+
+.noform {
+    display: inline;
+}

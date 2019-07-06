@@ -47,13 +47,20 @@ app.post("/logindata", (req, res) => {
             if (err) throw err;
             volunteers = JSON.parse(JSON.stringify(result));
         });*/
-        var data = {numVols: 0, numEvents: 0, numSchools: 0, volunteers: volunteers, events: events};
+        data = {numVols: 230, numEvents: 5, numSchools: 10, volunteers: volunteers, events: events};
         res.render("admin.ejs", data);
     }
-    else {
-        res.render("register.ejs", {errmsg:""});
-    }
+    // check if valid uname/pwd in database
+    // if yes, get details
+    // if no current event
+    // res.render("volunteer.ejs", details)
+    // else res.render("volevent.ejs", details)
+    // if event done res.render("volend.ejs", details)
+    
+    // else register 
+    res.render("register.ejs", {});
 });
+
 
 app.post("/registerdata", (req, res) => {
     console.log(req.body);
@@ -64,9 +71,12 @@ app.post("/registerdata", (req, res) => {
         newvol = JSON.parse(JSON.stringify(result));
     });
     if(newvol.length > 0)
-        res.render("register.ejs", {errmsg:"This email id already exists!"});
+        res.render("register.ejs", {err:{msg:"This email id already exists!"}});
+    else {
+        // add req.body to table, rerout
+    }
     */
-    res.render("volunteer.ejs", {errsg:""});
+    res.render("register.ejs", {});
 });
 
 app.get("/volunteer", (req, res) => {
@@ -74,8 +84,33 @@ app.get("/volunteer", (req, res) => {
     var events = [{name:"FP", city:"Bengaluru", date:"27/07/27", activity:"Finger painting", numPeople: 80}];
     var nevents = [{name:"MA", city:"Bengaluru", date:"27/07/27", activity:"Finger painting", numPeople: 80}];
 
-    var data = {volunteer: volunteer, events: events, newEvents: nevents};
-    res.render("volunteer.ejs", data);
+    var voldata = {volunteer: volunteer, events: events, newEvents: nevents};
+    res.render("volunteer.ejs", JSON.parse(JSON.stringify(voldata)));
+});
+
+app.get("/volevent", (req, res) => {
+    var volunteer = {name:"A", email:"B", phone:"C", events:6, hours:55};
+    var events = [{name:"FP", city:"Bengaluru", date:"27/07/27", activity:"Finger painting", numPeople: 80}];
+    var nevents = [{name:"MA", city:"Bengaluru", date:"27/07/27", activity:"Finger painting", numPeople: 80}];
+
+    var voldata = {volunteer: volunteer, events: events, newEvents: nevents};
+    res.render("volevent.ejs", JSON.parse(JSON.stringify(voldata)));
+});
+
+app.get("/volend", (req, res) => {
+    var volunteer = {name:"A", email:"B", phone:"C", events:6, hours:55};
+    var events = [{name:"FP", city:"Bengaluru", date:"27/07/27", activity:"Finger painting", numPeople: 80}];
+    var nevents = [{name:"MA", city:"Bengaluru", date:"27/07/27", activity:"Finger painting", numPeople: 80}];
+
+    voldata = {volunteer: volunteer, events: events, newEvents: nevents};
+    res.render("volend.ejs", JSON.parse(JSON.stringify(voldata)));
+});
+
+app.post("/addeventdata", (req, res) => {
+    // add event data and volunteer data to database
+    // use voldata to get voldata
+    //res.render("volunteer.ejs", JSON.parse(JSON.stringify(voldata)));
+    res.send("<h1>Dummy Page</h1>");
 });
 
 app.get("/admin", (req, res) => {

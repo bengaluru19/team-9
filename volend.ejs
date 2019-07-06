@@ -42,7 +42,7 @@
     </section>
 
     <div class="container">
-        <h3 class="tour-h3">Registered Events</h3>
+        <h3 class="tour-h3">Event Scheduled!!!</h3>
         <div class="tour-row">
             <span class="tour-item tour-head">Name</span>
             <span class="tour-item tour-head">City</span>
@@ -63,32 +63,17 @@
         </div>
     </div>
 
-    <div class="container">
-        <h3 class="tour-h3">Upcoming Events</h3>
-        <div class="tour-row">
-            <span class="tour-item tour-head">Name</span>
-            <span class="tour-item tour-head">Email</span>
-            <span class="tour-item tour-head">Phone</span>
-            <span class="tour-item tour-head">Events</span>
-            <span class="tour-item tour-head">Hours</span>
-        </div>
-        <div class="tour-row">
-            <% newEvents.forEach(function(ne) { %>
-                <div class="tour-row">
-                    <span class="tour-item tour-head"><%= ne.name %></span>
-                    <span class="tour-item tour-city"><%= ne.city %></span>
-                    <span class="tour-item tour-arena"><%= ne.date %></span>
-                    <span class="tour-item tour-city"><%= ne.activity %></span>
-                    <span class="tour-item tour-arena"><%= ne.numPeople %></span>
-                    <form class="noform" action="/addeventdata" method="post" id="addevent">
-                        <button class="btn btn-primary btn-danger" onclick="send()">Apply</button>
-                    </form>
-                    
-                </div>
-            <% }); %>
-        </div>
-    </div>
-
+    <section class="content-section container">
+        <h2 class="section-header">Enter your check-out key</h2>
+        <div class="login-page">
+            <div class="form">
+                <form action="addeventdata" method="POST">
+                <input type="text" placeholder="location key" name="key"/>
+                <input id="form-submit" type="submit" value="Submit">
+                </form>
+            </div>
+            </div>
+    </section>
 
     <footer class="main-footer">
         <div class="container main-footer-container">
