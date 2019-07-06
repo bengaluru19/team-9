@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Generate Report</title>
+    <script src="angular/angular.min.js"></script>
+    <link href="css/styles.css" rel="stylesheet" media="all">
+    <script> var myModule = angular.module("myApp",[]);  </script>
+</head>
+
+<body>
+    <div class="page-wrapper">
+    <header class="main-header">
+        <h1 class="ngo-name ngo-name-large">Careworks</h1>
+    </header>
+
+    <section>
+        <div class="container">
+            <span><h1>Welcome Administrator</h1></span>
+        </div>
+    </section>
+
+    <section>
+        <div class="container metadata">
+            <ul class="metadata-ul">
+                <li class="metadata-li">
+                    <h2 class="number"><%= numVols %></h2>
+                    <span class="desc">Volunteers</span>
+                </li>
+                <li class="metadata-li">
+                    <h2><%= numEvents %></h2>
+                    <span>Events</span>
+                </li>
+                <li class="metadata-li">
+                    <h2><%= numSchools %></h2>
+                    <span>Schools Covered</span>     
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="container">
+        <h3>Volunteer List</h3>
+        <select name="property">
+            <option selected="selected">All Properties</option>
+            <option value="">Option 1</option>
+            <option value="">Option 2</option>
+        </select>
+        <select class="js-select2" name="time">
+            <option selected="selected">Today</option>
+            <option value="">3 Days</option>
+            <option value="">1 Week</option>
+        </select>
+        <button class="au-btn-filter">filters</button>
+        <button class="au-btn au-btn-icon au-btn--green au-btn--small">add a volunteer</button>
+        <select class="js-select2" name="type">
+            <option selected="selected">Remove</option>
+        </select>
+
+        <div class="tour-row">
+            <span class="tour-item tour-head">Name</span>
+            <span class="tour-item tour-head">Email</span>
+            <span class="tour-item tour-head">Phone</span>
+            <span class="tour-item tour-head">Events</span>
+            <span class="tour-item tour-head">Hours</span>
+        </div>
+        <div class="tour-row">
+            <% volunteers.forEach(function(vol) { %></div>
+                <div class="tour-row">
+                    <span class="tour-item tour-head"><%= vol.name %></span>
+                    <span class="tour-item tour-city"><%= vol.email %></span>
+                    <span class="tour-item tour-arena"><%= vol.phone %></span>
+                    <input type="checkbox">
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>Volunteer List</h3>
+        <select name="property">
+            <option selected="selected">All Properties</option>
+            <option value="">Option 1</option>
+            <option value="">Option 2</option>
+        </select>
+        <select class="js-select2" name="time">
+            <option selected="selected">Today</option>
+            <option value="">3 Days</option>
+            <option value="">1 Week</option>
+        </select>
+        <button class="au-btn-filter">filters</button>
+        <button class="au-btn au-btn-icon au-btn--green au-btn--small">add a volunteer</button>
+        <select class="js-select2" name="type">
+            <option selected="selected">Remove</option>
+        </select>
+
+        <div class="tour-row">
+            <span class="tour-item tour-head">Name</span>
+            <span class="tour-item tour-head">Email</span>
+            <span class="tour-item tour-head">Phone</span>
+            <span class="tour-item tour-head">Events</span>
+            <span class="tour-item tour-head">Hours</span>
+        </div>
+        <div class="tour-row">
+            <% volunteers.forEach(function(vol) { %></div>
+                <div class="tour-row">
+                    <span class="tour-item tour-head"><%= vol.name %></span>
+                    <span class="tour-item tour-city"><%= vol.email %></span>
+                    <span class="tour-item tour-arena"><%= vol.phone %></span>
+                    <input type="checkbox">
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+
+    <footer class="main-footer">
+        <div class="container main-footer-container">
+            <h3 class="band-name">Careworks</h3>
+            <ul class="nav footer-nav">
+                <li>
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="Images/YouTubeLogo.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="Images/FacebookLogo.png">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
