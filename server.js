@@ -81,8 +81,7 @@ app.get("/admin", (req, res) => {
 
     con.query("SELECT * FROM events", function (err, result, fields) {
         if (err) throw err;
-        console.log(result);
-        volunteers = result;
+        volunteers = JSON.parse(JSON.stringify(result));
     });
     var data = {numVols: 0, numEvents: 0, numSchools: 0, volunteers: volunteers};
     res.render("admin.ejs", data);
