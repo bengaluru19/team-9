@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Generate Report</title>
+    <script type="text/javascript">
+        function send() {
+            document.getElementById("addevent").submit();
+        }
+    </script>
+    <link href="css/styles.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper">
+    <header class="main-header">
+        <h1 class="ngo-name ngo-name-large">Careworks</h1>
+    </header>
+
+    <section>
+        <div class="container">
+            <span><h1 class="welcome-header">Welcome <%= volunteer.name %></h1></span>
+        </div>
+    </section>
+
+    <section>
+        <hr class="welcome-sep">
+        <div class="container metadata">
+            <ul class="metadata-ul">
+                <li class="metadata-li">
+                    <h2><%= volunteer.events %></h2>
+                    <span>Events Attended</span>
+                </li>
+                <li class="metadata-li">
+                    <h2><%= volunteer.hours %></h2>
+                    <span>Hours Worked</span>     
+                </li>
+            </ul>
+        </div>
+        <hr class="welcome-sep">
+    </section>
+
+    <div class="container">
+        <h3 class="tour-h3">Event Scheduled!!!</h3>
+        <div class="tour-row">
+            <span class="tour-item tour-head">Name</span>
+            <span class="tour-item tour-head">City</span>
+            <span class="tour-item tour-head">Date</span>
+            <span class="tour-item tour-head">Activity</span>
+            <span class="tour-item tour-head">Volunteers</span>
+        </div>
+        <div class="tour-row">
+            <% events.forEach(function(eve) { %>
+                <div class="tour-row">
+                    <span class="tour-item tour-head"><%= eve.name %></span>
+                    <span class="tour-item tour-city"><%= eve.city %></span>
+                    <span class="tour-item tour-arena"><%= eve.date %></span>
+                    <span class="tour-item tour-city"><%= eve.activity %></span>
+                    <span class="tour-item tour-arena"><%= eve.numPeople %></span>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <section class="content-section container">
+        <h2 class="section-header">Enter your check-in and check-out keys</h2>
+        <div class="login-page">
+            <div class="form">
+                <form action="runningdata" method="POST">
+                <input type="text" placeholder="start key" name="startkey"/>
+                <input type="text" placeholder="end key" name="endkey"/>
+                <input id="form-submit" type="submit" value="Submit">
+                </form>
+            </div>
+            </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container main-footer-container">
+            <h3 class="ngo-footer-name">Careworks</h3>
+            <ul class="nav footer-nav">
+                <li>
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="Images/YoutubeLogo.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="Images/FacebookLogo.png">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+</body>

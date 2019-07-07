@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Careworks</title>
+        <meta name="description" content="This is the description">
+        
+        <link href="/css/styles.css" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+        <header class="main-header">
+            <h1 class="ngo-name ngo-name-large">Careworks</h1>
+        </header>
+
+        <section class="content-section container">
+            <h2 class="section-header">Careworks Foundation</h2>
+            <div class="login-page">
+                <div class="form">
+                  <form action="logindata" method="POST">
+                    <input type="text" placeholder="username" name="name"/>
+                    <input type="password" placeholder="password" name="password"/>
+                    <input id="form-submit" type="submit" value="Login">
+                    <p class="message">Not registered? <a href="/register">Create an account</a></p>
+                  </form>
+                </div>
+              </div>
+        </section>
+        
+
+        <section class="content-section container">
+            <h2 class="section-header">Upcoming Events</h2>
+            <div class="container">
+                    <div class="tour-row">
+                            <span class="tour-item tour-head">Name</span>
+                            <span class="tour-item tour-head">City</span>
+                            <span class="tour-item tour-head">Date</span>
+                            <span class="tour-item tour-head">Activity</span>
+                            <span class="tour-item tour-head">Volunteers</span>
+                        </div>
+                        <div class="tour-row">
+                            <% events.forEach(function(eve) { %>
+                                <div class="tour-row">
+                                    <span class="tour-item tour-head"><%= eve.name %></span>
+                                    <span class="tour-item tour-city"><%= eve.city %></span>
+                                    <span class="tour-item tour-arena"><%= eve.date %></span>
+                                    <span class="tour-item tour-city"><%= eve.activity %></span>
+                                    <span class="tour-item tour-arena"><%= eve.numPeople %></span>
+                                </div>
+                            <% }); %>
+                        </div>
+            </div>
+            
+        </section>
+
+        <footer class="main-footer">
+            <div class="container main-footer-container">
+                <h3 class="ngo-footer-name">Careworks</h3>
+                <ul class="nav footer-nav">
+                    <li>
+                        <a href="https://www.youtube.com" target="_blank">
+                            <img src="../Images/YoutubeLogo.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img src="../Images/FacebookLogo.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>
