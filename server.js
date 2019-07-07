@@ -106,11 +106,33 @@ app.get("/volend", (req, res) => {
     res.render("volend.ejs", JSON.parse(JSON.stringify(voldata)));
 });
 
-app.post("/addeventdata", (req, res) => {
+app.post("/addevent", (req, res) => {
     // add event data and volunteer data to database
     // use voldata to get voldata
     //res.render("volunteer.ejs", JSON.parse(JSON.stringify(voldata)));
-    res.send("<h1>Dummy Page</h1>");
+    res.render("regevent.ejs", {});
+});
+
+function getAdminPage() {
+    var events = {};
+    var volunteers = {};
+    // SQL code to retrieve event and volunteers 
+    //
+    var data = {numVols: volunteers.length, numEvents: events.length, numSchools: 19, volunteers: volunteers, events: events};
+    res.render("admin.ejs", data);
+}
+
+app.post("/neweventdata", (req, res) => {
+    var data = {};
+    data.name = req.body.name;
+    data.city = req.body.city;
+    data.date = req.body.date;
+    data.reqvol = req.body.reqvol;
+    data.activities = req.body.activities;
+    console.log(data);
+    // SQL code here *********************************************************
+
+    getAdminPage();
 });
 
 app.get("/admin", (req, res) => {
