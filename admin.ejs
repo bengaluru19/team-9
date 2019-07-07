@@ -4,11 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Generate Report</title>
-    <script type="text/javascript">
-        function send() {
-            document.getElementById("eve").submit();
-        }
-    </script>
     <link href="css/styles.css" rel="stylesheet" media="all">
 </head>
 
@@ -47,19 +42,21 @@
 
     <section>
         <div class="container">
+            <h3 class="tour-h3">Generate Reports</h3>
             <span class="searcher">
-                <form action="searchforvolunteer" method="POST" class="searchform">
+                <form action="searchvol" method="GET" class="searchform">
                         <input type="text" placeholder="search volunteers" name="volname"/>
                         <input id="form-submit" type="submit" value="Go">      
                 </form>
             </span>
             <span class="searcher">
-                <form action="searchforevent" method="POST" class="searchform">
+                <form action="searcheve" method="GET" class="searchform">
                         <input type="text" placeholder="search events" name="evename"/>
                         <input id="form-submit" type="submit" value="Go">      
                 </form>
             </span>
         </div>
+        <hr class="welcome-sep">
     </section>
 
     <div class="container">
