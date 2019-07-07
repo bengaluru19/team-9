@@ -5,9 +5,6 @@ var app = express();
 app.use(bp.urlencoded({extended: false}));
 app.use(express.static(__dirname + '/public'));
 
-var eid = 0;
-var vid = 0;
-
 var mysql = require('mysql');
 /*
 var con = mysql.createConnection({
@@ -22,7 +19,8 @@ con.connect(function(err) {
 });
 */
 
-var volunteers = 0
+var volunteers = 0, eid=0, vid=0;
+
 app.get("/", (req, res) => {
     var inp = {};
     inp.id = volunteers;
@@ -116,9 +114,10 @@ app.post("/addevent", (req, res) => {
     res.render("regevent.ejs", {});
 });
 
-function getAdminPage() {
+function getAdminPage(res) {
     var events = {};
     var volunteers = {};
+
     // SQL code to retrieve event and volunteers 
     var query = "SELECT * FROM events";
     var query2 = "SELECT * FROM volunteers";
@@ -128,12 +127,13 @@ function getAdminPage() {
     con.query(query2, (err, results, fields) => {
         volunteers = JSON.parse(JSON.stringify(results));
     })
+
     var data = {numVols: volunteers.length, numEvents: events.length, numSchools: 19, volunteers: volunteers, events: events};
     res.render("admin.ejs", data);
 }
 
 app.post("/neweventdata", (req, res) => {
-    eid += 1;
+    console.log(req.body);
     // SQL code here *********************************************************
     var query = "INSERT INTO events(name,eid,location,date,nos,requirednos) VALUES(?,?,?,?,?,?)";
     con.query(query, [req.body.name, eid, req.body.location, req.body.date, 0, req.body.reqvol], (err, results, fields) => {
@@ -143,7 +143,7 @@ app.post("/neweventdata", (req, res) => {
         }
         console.log("Successfully inserted the new event data!");
     })
-    getAdminPage();
+    getAdminPage(res);
 });
 
 app.get("/admin", (req, res) => {
@@ -156,6 +156,18 @@ app.get("/admin", (req, res) => {
     });*/
     var data = {numVols: 2700, numEvents: 54, numSchools: 19, volunteers: volunteers, events: events};
     res.render("admin.ejs", data);
+});
+
+app.post("/searchforvolunteer", (req, res) => {
+    // console log SQL
+    var volname = req.body.volname;
+
+});
+
+app.post("/searchforevent", (req, res) => {
+    // console log SQL
+    var evename = req.body.evename;
+    
 });
 
 var server = app.listen(5000, () => {

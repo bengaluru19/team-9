@@ -13,20 +13,16 @@
         </header>
 
         <section class="content-section container">
-            <h2 class="section-header">Register as a Volunteer</h2>
+            <h2 class="section-header">Add an Event</h2>
             <div class="login-page">
                 <div class="form">
-                  <form action="registerdata" method="POST">
+                  <form action="neweventdata" method="POST">
                     <input type="text" placeholder="name" name="name" required>
-                    <input type="text" placeholder="phone" name="phone" required>
-                    <input type="email" placeholder="email address" name="email" required>
-                    <input type="text" placeholder="place" name="place">
-                    <input type="text" placeholder="skills" name="skills">
-                    <input type="text" placeholder="experience" name="experience">
-                    <input type="password" placeholder="password" name="pwd" required>
-                    <input type="password" placeholder="confirm password" name="conpwd" required>
+                    <input type="text" placeholder="city" name="city" required>
+                    <input type="date" placeholder="date" name="date" required>
+                    <input type="text" placeholder="required volunteers" name="reqvol" required>
+                    <input type="text" placeholder="activities" name="activities">
                     <input id="form-submit" type="submit" value="Submit">
-                    <p class="message">Already registered? <a href="/">Sign In</a></p>
                   </form>
                 </div>
               </div>

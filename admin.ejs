@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Generate Report</title>
-    <script src="angular/angular.min.js"></script>
+    <script type="text/javascript">
+        function send() {
+            document.getElementById("eve").submit();
+        }
+    </script>
     <link href="css/styles.css" rel="stylesheet" media="all">
-    <script> var myModule = angular.module("myApp",[]);  </script>
 </head>
 
 <body>
@@ -42,6 +45,23 @@
         <hr class="welcome-sep">
     </section>
 
+    <section>
+        <div class="container">
+            <span class="searcher">
+                <form action="searchforvolunteer" method="POST" class="searchform">
+                        <input type="text" placeholder="search volunteers" name="volname"/>
+                        <input id="form-submit" type="submit" value="Go">      
+                </form>
+            </span>
+            <span class="searcher">
+                <form action="searchforevent" method="POST" class="searchform">
+                        <input type="text" placeholder="search events" name="evename"/>
+                        <input id="form-submit" type="submit" value="Go">      
+                </form>
+            </span>
+        </div>
+    </section>
+
     <div class="container">
         <h3 class="tour-h3">Events List</h3>
         <div class="tour-row">
@@ -64,6 +84,9 @@
             <% }); %>
         </div>
     </div>
+    <form method="POST" id="eve" action="addevent" class="noform">
+        <button class="btn btn-primary btn-purchase" type="button" onclick="send()">Add an Event</button>
+    </form>
 
     <div class="container">
         <h3 class="tour-h3">Volunteer List</h3>
