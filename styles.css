@@ -382,8 +382,8 @@ cursor: pointer;
 
 .btn-purchase {
     display: block;
-    margin: 40px auto 80px auto;
-    font-size: 1.75em;
+    margin: 0.5em auto 0.5em auto;
+    font-size: 1em;
 }
 
 
@@ -419,4 +419,20 @@ cursor: pointer;
 
 .noform {
     display: inline;
+}
+
+.searchform {
+    display: inline-flex;
+    justify-content: space-around;
+    margin: 1em 5em;
+}
+
+.searchform input {
+    align-content: center;
+    padding: 0% 5%;
+}
+
+.searchform form {
+    display: block;
+    justify-content: end;
 }
