@@ -5,6 +5,9 @@ var app = express();
 app.use(bp.urlencoded({extended: false}));
 app.use(express.static(__dirname + '/public'));
 
+var eid = 0;
+var vid = 0;
+
 var mysql = require('mysql');
 /*
 var con = mysql.createConnection({
@@ -117,21 +120,29 @@ function getAdminPage() {
     var events = {};
     var volunteers = {};
     // SQL code to retrieve event and volunteers 
-    //
+    var query = "SELECT * FROM events";
+    var query2 = "SELECT * FROM volunteers";
+    con.query(query, (err, result, fields) => {
+        events = JSON.parse(JSON.stringify(results));
+    })
+    con.query(query2, (err, results, fields) => {
+        volunteers = JSON.parse(JSON.stringify(results));
+    })
     var data = {numVols: volunteers.length, numEvents: events.length, numSchools: 19, volunteers: volunteers, events: events};
     res.render("admin.ejs", data);
 }
 
 app.post("/neweventdata", (req, res) => {
-    var data = {};
-    data.name = req.body.name;
-    data.city = req.body.city;
-    data.date = req.body.date;
-    data.reqvol = req.body.reqvol;
-    data.activities = req.body.activities;
-    console.log(data);
+    eid += 1;
     // SQL code here *********************************************************
-
+    var query = "INSERT INTO events(name,eid,location,date,nos,requirednos) VALUES(?,?,?,?,?,?)";
+    con.query(query, [req.body.name, eid, req.body.location, req.body.date, 0, req.body.reqvol], (err, results, fields) => {
+        if(err)
+        {
+            return console.error(err.message);
+        }
+        console.log("Successfully inserted the new event data!");
+    })
     getAdminPage();
 });
 
